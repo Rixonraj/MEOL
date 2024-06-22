@@ -1,38 +1,270 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body, html, #root, .App {
+  height: 100%;
+  width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar {
+  position: fixed;
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  z-index: 1000;
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.navbar li {
+  cursor: pointer;
+}
+
+.fullscreen-video,
+.fullscreen-image {
+  position: relative;
+  height: 100vh; /* Updated to 100vh */
+  width: 100%;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.fullscreen-video video,
+.fullscreen-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.branding-elements {
+  text-align: center;
+}
+
+.branding-elements h1 {
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+.branding-elements p {
+  font-size: 1.5rem;
+}
+
+.explore-now-button {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.scroll-cards {
+  height: 100vh; /* Updated to 100vh */
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: #f5f5f5;
+  overflow: hidden;
+  padding: 2rem;
+}
+
+.cards-container {
+  display: flex;
+  gap: 1rem;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+}
+
+.cards-container::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  min-width: 300px;
+  max-width: 300px;
+  height: 400px; /* Increased card height */
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Added opacity transition */
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 1rem;
+  background: white;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-content h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-content p {
+  font-size: 1rem;
+  color: #666;
+}
+
+.buy-now-button {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.contact-us {
+  padding: 2rem;
+  background: #f5f5f5;
+}
+
+.contact-us h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.contact-us form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.submit-button {
+  padding: 0.75rem;
+  font-size: 1rem;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: center;
+}
+
+.footer {
+  background: #333;
+  color: white;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-section {
+  max-width: 1200px;
+  width: 100%;
+}
+
+.footer-section h4 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.footer-section ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-section ul li {
+  flex: 1 1 45%;
+  cursor: pointer;
+}
+
+.scroll-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100;
+  transition: background 0.3s ease-in-out;
+}
+
+.scroll-button:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.left {
+  left: 10px;
+}
+
+.right {
+  right: 10px;
+}
+
+@media (max-width: 768px) {
+  .scroll-button {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
   }
 }
